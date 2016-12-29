@@ -5,14 +5,14 @@ import (
 	"errors"
 )
 
-//Stack represents the LIFO data structure
+//Stack represents the LIFO data structure.
 type Stack struct {
 	stack *list.List
 }
 
-//Constructor for Stack
-//If params is empty, it will new a empty Stack
-//Or you can pass a List to initialize the Stack
+//Constructor for Stack.
+//If params is empty, it will new a empty Stack.
+//Or you can pass a List to initialize the Stack.
 func New(params ...*list.List) (*Stack, error) {
 	sta := new(Stack)
 	var err error = nil
@@ -27,31 +27,31 @@ func New(params ...*list.List) (*Stack, error) {
 	return sta, err
 }
 
-//Get the Stack size
+//Get the Stack size.
 func (sta *Stack) Size() int {
 	return sta.stack.Len()
 }
 
-//Check the Stack is empty or not
+//Check whether tthe Stack is empty or not.
 func (sta *Stack) Empty() bool {
 	return sta.stack.Len() == 0
 }
 
-//Insert the value above the top
+//Insert the value above the top.
 func (sta *Stack) Push(val interface{}) {
 	sta.stack.PushBack(val)
 }
 
-//Delete the top value in Stack
-//If the Stack is empty, it will do nothing
+//Delete the top value in Stack.
+//If the Stack is empty, it will do nothing.
 func (sta *Stack) Pop() {
 	if !sta.Empty() {
 		sta.stack.Remove(sta.stack.Back())
 	}
 }
 
-//Get the top value in Stack
-//If the Stack is empty, you will get nil
+//Get the top value in Stack.
+//If the Stack is empty, you will get nil.
 func (sta *Stack) Top() interface{} {
 	if sta.Empty() {
 		return nil
@@ -60,7 +60,7 @@ func (sta *Stack) Top() interface{} {
 	}
 }
 
-//Reverse the contents in the Stack
+//Reverse the contents in the Stack.
 func (sta *Stack) Reverse() {
 	tmp := list.New()
 	for !sta.Empty() {
@@ -70,7 +70,7 @@ func (sta *Stack) Reverse() {
 	sta.stack = tmp
 }
 
-//Swap the contents of two Stacks
+//Swap the contents of two Stacks.
 func (sta1 *Stack) Swap(sta2 *Stack) {
 	tmp := sta1.stack
 	sta1.stack = sta2.stack
