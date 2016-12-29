@@ -32,7 +32,7 @@ func (sta *Stack) Size() int {
 	return sta.stack.Len()
 }
 
-//Check whether tthe Stack is empty or not.
+//Check whether the Stack is empty or not.
 func (sta *Stack) Empty() bool {
 	return sta.stack.Len() == 0
 }
